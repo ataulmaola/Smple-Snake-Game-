@@ -1,6 +1,8 @@
 
+#import module 
 import pygame,sys,random,time
 
+#Cautions Check  
 check_errors=pygame.init()
 
 if check_errors[1]>0:
@@ -10,12 +12,12 @@ else:
 	print("(+) Pygame successfully initialized !")
 
 
-# Display 
+#Game Display 
 
 playDisplay=pygame.display.set_mode((720,460))
 pygame.display.set_caption('Snake Game')
 
-#colors
+#Game colors
 
 redish=pygame.Color(141,35,15) #gameover
 forest_green=pygame.Color(46,70,0) #Snake
@@ -23,11 +25,11 @@ dark_blue=pygame.Color(1,26,39) #score
 ivory_white=pygame.Color(241,243,206) #background
 hot_pink=pygame.Color(245,37,73) #food
 
-#Controller
+#Game Controller
 
 fpsController=pygame.time.Clock()
 
-#variable 
+#Game Variables 
 
 snakePos=[100,50]
 snakeBody=[[100,50],[90,50],[80,50]]
@@ -41,7 +43,7 @@ changeto=direction
 score = 0
 
 
-# GameOver function   
+#Game Over function   
 
 def gameOver():
 	myFont=pygame.font.SysFont('monaco',72)
@@ -55,7 +57,7 @@ def gameOver():
 	pygame.quit()
 	sys.exit()
 
-
+#Game Score function 
 def showScore(choice=1):
     sFont = pygame.font.SysFont('monaco', 24)
     Ssurf = sFont.render('Score : {0}'.format(score) , True, dark_blue)
@@ -66,6 +68,7 @@ def showScore(choice=1):
         Srect.midtop = (360, 120)
     playDisplay.blit(Ssurf,Srect)
 
+#Main Game 
 
 while True:
 	for event in pygame.event.get():
